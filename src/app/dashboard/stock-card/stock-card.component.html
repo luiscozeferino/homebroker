@@ -1,0 +1,23 @@
+<!--div class="stock-card-container">
+  <div class="stock-info-container">
+    <h2>SANB11</h2>
+    <p>24/05/2022 23:12</p>
+  </div>
+  <div class="stock-value-container">
+    <span class="value">R$ 38,98</span>
+    <span class="variation">+ 0,37%</span>
+  </div>
+</div-->
+<div class="stock-card-container" [class.negative-variation-border]="stock.variation < 0">
+  <div class="stock-info-container">
+    <h2>{{stock.name}}</h2>
+    <p>{{stock.date}}</p>
+  </div>
+  <div class="stock-value-container">
+    <span class="value">{{stock.price | currency:'BRL'}}</span>
+    <span class="variation" [class.negative-variation]="stock.variation < 0">
+      <!-- {{stock.variation.toLocaleString()}}%-->
+      {{variation}}
+    </span>
+  </div>
+</div>
